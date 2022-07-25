@@ -57,3 +57,4 @@ alert(profit.toFixed(2));
 //2 || 0 || 3 - true
 
 //2 && 0 || 3 - true
+
