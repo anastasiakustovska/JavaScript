@@ -59,7 +59,7 @@ let factorial = (number) => {
 
 //1.5
 function getNumbers(number1, number2, number3) {
-    return String(number1) + String(number2) + String(number3);
+    return Number(String(number1) + String(number2) + String(number3));
 }
 
 let res = getNumbers(1, 4, 9)
