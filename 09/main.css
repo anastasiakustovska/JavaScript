@@ -1,0 +1,17 @@
+#text-preview{
+    border: 1px solid black;
+    width: 500px;
+    height: 200px;
+    background-color: lightgrey;
+}
+
+.hidden {
+    display: none;
+}
+
+#text-input{
+    border: 1px solid black;
+    width: 500px;
+    height: 200px;
+    resize: none;
+}
