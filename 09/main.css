@@ -1,4 +1,4 @@
-#text-preview{
+#text-preview {
     border: 1px solid black;
     width: 500px;
     height: 200px;
@@ -9,9 +9,24 @@
     display: none;
 }
 
-#text-input{
+#text-input {
     border: 1px solid black;
     width: 500px;
     height: 200px;
     resize: none;
+}
+
+#resizable {
+    position: relative;
+    border: 1px solid orange;
+}
+
+.resizer {
+    width: 10px;
+    height: 10px;
+    background: blue;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    cursor: se-resize;
 }
