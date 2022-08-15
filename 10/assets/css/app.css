@@ -1,0 +1,245 @@
+:before,
+:after,
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+label {
+  cursor: pointer;
+}
+
+ul {
+  list-style: none;
+}
+
+.d-grid {
+  display: grid;
+}
+
+.p-relative {
+  position: relative;
+}
+
+.d-flex__align-items--center {
+  align-items: center;
+}
+
+.d-block {
+  display: block;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+.d-flex__justify--space-between {
+  justify-content: space-between;
+}
+
+.d-flex__justify--space-around {
+  justify-content: space-around;
+}
+
+.w-50 {
+  width: 50%;
+}
+.w-100 {
+  width: 100%;
+}
+
+.h-100 {
+  height: 100%;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.container {
+  width: 90%;
+  max-width: 1170px;
+  margin: auto;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #2B3040;
+}
+
+.container {
+  width: 1440px;
+  background: #2B3040;
+  position: relative;
+  margin: auto;
+}
+
+.main-content {
+  width: 1000px;
+  height: 860px;
+  position: relative;
+  background: rgba(41, 45, 62, 0.8);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.content-background {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-image: url(../images/photo.png);
+  background-position: center;
+  background-size: 100%;
+}
+
+.game-info {
+  margin: auto;
+  width: 600px;
+  height: 552px;
+  background: #212534;
+  position: relative;
+  z-index: 1;
+}
+.game-info--buy {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+}
+.game-info--buy__discount {
+  font-size: 12px;
+  line-height: 20px;
+  font-family: "Lato", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  color: #FFDD3F;
+}
+.game-info--buy__price {
+  font-size: 32px;
+  line-height: 32px;
+  font-family: "Lato", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  color: #FFFFFF;
+}
+.game-info--buy__button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 30px;
+  width: 155px;
+  height: 60px;
+  background: #13E28D;
+  border-radius: 2px;
+}
+
+.headings {
+  width: 100%;
+  background: #2B3040;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  text-transform: uppercase;
+}
+.headings-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  color: #FFFFFF;
+  width: 120px;
+  padding: 28px 0;
+}
+.headings-item-icon {
+  width: 24px;
+  height: 22px;
+  margin-bottom: 15px;
+}
+
+.heading-info {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 28px;
+  text-transform: uppercase;
+  color: #FFFFFF;
+}
+
+.main-card {
+  width: 100%;
+  padding: 60px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+.main-card--heading {
+  display: flex;
+  justify-content: space-between;
+}
+.main-card--photo {
+  width: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.main-card--photo_rating {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+.main-card--description {
+  width: 100%;
+  margin-bottom: 50px;
+  display: flex;
+  position: relative;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: center;
+}
+.main-card--description__h2 {
+  font-size: 32px;
+  line-height: 32px;
+  color: white;
+  margin: 15px 0;
+  font-style: normal;
+  font-weight: 400;
+}
+.main-card--description__span {
+  font-size: 14px;
+  line-height: 20px;
+  color: white;
+  margin-bottom: 40px;
+}
+.main-card--description__text {
+  font-size: 14px;
+  line-height: 22px;
+  color: #B7BACD;
+  font-style: normal;
+  font-weight: 400;
+}
+
+/*# sourceMappingURL=app.css.map */
