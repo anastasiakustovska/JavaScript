@@ -36,6 +36,7 @@ body {
   background-image: url(../images/photo.png);
   background-position: center;
   background-size: 100%;
+  opacity: 0.3;
 }
 
 .game-info {
@@ -68,6 +69,7 @@ body {
       font-style: normal;
       font-weight: 400;
       color: #FFFFFF;
+      margin-right: 50px;
     }
 
     &__button {
@@ -80,6 +82,14 @@ body {
       height: 60px;
       background: #13E28D;
       border-radius: 2px;
+      font-family: 'Lato', sans-serif;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 20px;
+      text-transform: uppercase;
+      color: #FFFFFF;
+      border: 0;
     }
   }
 }
@@ -101,6 +111,12 @@ body {
     width: 120px;
     padding: 28px 0;
 
+    &:hover{
+path{
+  fill: #FFFFFF;
+}
+    }
+
     &-icon {
       width: 24px;
       height: 22px;
@@ -108,6 +124,67 @@ body {
     }
   }
 }
+
+.pie {
+  --p: 10;
+  --b: 22px;
+  --c: darkred;
+  --w: 75px;
+
+  width: var(--w);
+  aspect-ratio: 1;
+  position: relative;
+  display: inline-grid;
+  margin: 5px;
+  place-content: center;
+  font-family: 'Lato',sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 22px;
+  text-align: center;
+  color: #B7BACD;
+}
+
+.pie:before,
+.pie:after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+}
+
+.pie:before {
+  inset: 0;
+  background: radial-gradient(farthest-side, #00D4BE 98%, #0000) top/var(--b) var(--b) no-repeat,
+  conic-gradient(var(--c) calc(var(--p) * 1%), #0000 0);
+  -webkit-mask: radial-gradient(farthest-side, #0000 calc(99% - var(--b)), #000 calc(100% - var(--b)));
+  mask: radial-gradient(farthest-side, #0000 calc(99% - var(--b)), #000 calc(100% - var(--b)));
+}
+
+.pie:after {
+  inset: calc(50% - var(--b) / 2);
+  background: var(--c);
+  transform: rotate(calc(var(--p) * 3.6deg)) translateY(calc(50% - var(--w) / 2));
+}
+
+.animate {
+  animation: p 1s .5s both;
+}
+
+.no-round:before {
+  background-size: 0 0, auto;
+}
+
+.no-round:after {
+  content: none;
+}
+
+@keyframes p {
+  from {
+    --p: 0
+  }
+}
+
 
 .heading-info {
   font-family: "Lato", sans-serif;
@@ -127,6 +204,7 @@ body {
   gap: 40px;
 
   &--heading {
+    width: 100%;
     display: flex;
     justify-content: space-between;
   }
@@ -139,16 +217,16 @@ body {
     flex-direction: column;
 
     &_rating {
+      margin-top: 25px;
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: space-around;
       width: 100%;
     }
   }
 
   &--description {
     width: 100%;
-    margin-bottom: 50px;
     display: flex;
     position: relative;
     align-items: flex-start;
@@ -168,7 +246,6 @@ body {
       font-size: 14px;
       line-height: 20px;
       color: white;
-      margin-bottom: 40px;
     }
 
     &__text {
@@ -177,6 +254,22 @@ body {
       color: #B7BACD;
       font-style: normal;
       font-weight: 400;
+      margin-bottom: 50px;
+      margin-top: 40px;
+    }
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+.star{
+  cursor: pointer;
+
+  &-gold{
+    path {
+      fill: #d6a720;
     }
   }
 }

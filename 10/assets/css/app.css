@@ -110,6 +110,7 @@ body {
   background-image: url(../images/photo.png);
   background-position: center;
   background-size: 100%;
+  opacity: 0.3;
 }
 
 .game-info {
@@ -141,6 +142,7 @@ body {
   font-style: normal;
   font-weight: 400;
   color: #FFFFFF;
+  margin-right: 50px;
 }
 .game-info--buy__button {
   display: flex;
@@ -152,6 +154,14 @@ body {
   height: 60px;
   background: #13E28D;
   border-radius: 2px;
+  font-family: "Lato", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  border: 0;
 }
 
 .headings {
@@ -171,12 +181,72 @@ body {
   width: 120px;
   padding: 28px 0;
 }
+.headings-item:hover path {
+  fill: #FFFFFF;
+}
 .headings-item-icon {
   width: 24px;
   height: 22px;
   margin-bottom: 15px;
 }
 
+.pie {
+  --p: 10;
+  --b: 22px;
+  --c: darkred;
+  --w: 75px;
+  width: var(--w);
+  aspect-ratio: 1;
+  position: relative;
+  display: inline-grid;
+  margin: 5px;
+  place-content: center;
+  font-family: "Lato", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 22px;
+  text-align: center;
+  color: #B7BACD;
+}
+
+.pie:before,
+.pie:after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+}
+
+.pie:before {
+  inset: 0;
+  background: radial-gradient(farthest-side, #00D4BE 98%, rgba(0, 0, 0, 0)) top/var(--b) var(--b) no-repeat, conic-gradient(var(--c) calc(var(--p) * 1%), rgba(0, 0, 0, 0) 0);
+  -webkit-mask: radial-gradient(farthest-side, rgba(0, 0, 0, 0) calc(99% - var(--b)), #000 calc(100% - var(--b)));
+  mask: radial-gradient(farthest-side, rgba(0, 0, 0, 0) calc(99% - var(--b)), #000 calc(100% - var(--b)));
+}
+
+.pie:after {
+  inset: calc(50% - var(--b) / 2);
+  background: var(--c);
+  transform: rotate(calc(var(--p) * 3.6deg)) translateY(calc(50% - var(--w) / 2));
+}
+
+.animate {
+  animation: p 1s 0.5s both;
+}
+
+.no-round:before {
+  background-size: 0 0, auto;
+}
+
+.no-round:after {
+  content: none;
+}
+
+@keyframes p {
+  from {
+    --p: 0 ;
+  }
+}
 .heading-info {
   font-family: "Lato", sans-serif;
   font-weight: 400;
@@ -195,6 +265,7 @@ body {
   gap: 40px;
 }
 .main-card--heading {
+  width: 100%;
   display: flex;
   justify-content: space-between;
 }
@@ -206,14 +277,14 @@ body {
   flex-direction: column;
 }
 .main-card--photo_rating {
+  margin-top: 25px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   width: 100%;
 }
 .main-card--description {
   width: 100%;
-  margin-bottom: 50px;
   display: flex;
   position: relative;
   align-items: flex-start;
@@ -232,7 +303,6 @@ body {
   font-size: 14px;
   line-height: 20px;
   color: white;
-  margin-bottom: 40px;
 }
 .main-card--description__text {
   font-size: 14px;
@@ -240,6 +310,19 @@ body {
   color: #B7BACD;
   font-style: normal;
   font-weight: 400;
+  margin-bottom: 50px;
+  margin-top: 40px;
+}
+
+.hidden {
+  display: none;
+}
+
+.star {
+  cursor: pointer;
+}
+.star-gold path {
+  fill: #d6a720;
 }
 
 /*# sourceMappingURL=app.css.map */
