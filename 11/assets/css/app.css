@@ -85,4 +85,29 @@ ul {
   width: 100%;
 }
 
+.header-menu-list {
+  display: flex;
+}
+
+.slider--main {
+  width: 100%;
+  height: 700px;
+}
+.slider--main__slide {
+  position: relative;
+}
+.slider--main__slide-content {
+  position: absolute;
+  right: 100px;
+  top: 120px;
+}
+.slider--main img {
+  width: 100%;
+}
+
+.slick-dots {
+  bottom: 0;
+  z-index: 99;
+}
+
 /*# sourceMappingURL=app.css.map */
