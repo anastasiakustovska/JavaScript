@@ -2,6 +2,14 @@
   display: grid;
 }
 
+.d-flex {
+  display: flex;
+
+  &__column {
+    flex-direction: column;
+  }
+}
+
 .p-relative {
   position: relative;
 }
