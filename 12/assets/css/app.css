@@ -1,0 +1,97 @@
+:before,
+:after,
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+label {
+  cursor: pointer;
+}
+
+ul {
+  list-style: none;
+}
+
+.d-grid {
+  display: grid;
+}
+
+.p-relative {
+  position: relative;
+}
+
+.d-flex__align-items--center {
+  align-items: center;
+}
+
+.d-block {
+  display: block;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+.d-flex__justify--space-between {
+  justify-content: space-between;
+}
+
+.d-flex__justify--space-around {
+  justify-content: space-around;
+}
+
+.w-50 {
+  width: 50%;
+}
+.w-100 {
+  width: 100%;
+}
+
+.h-100 {
+  height: 100%;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.container {
+  width: 90%;
+  max-width: 1170px;
+  margin: auto;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, .card {
+  color: white;
+  background: #2B3040;
+}
+
+.card {
+  border: 1px solid white;
+}
+
+.card-body p {
+  display: none;
+}
+.card-body.show p {
+  display: block;
+}
+
+/*# sourceMappingURL=app.css.map */

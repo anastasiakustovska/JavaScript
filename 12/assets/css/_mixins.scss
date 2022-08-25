@@ -1,0 +1,26 @@
+@mixin maxWidth($width) {
+  @media screen and(max-width: $width) {
+    @content;
+  }
+}
+
+@mixin minWidth($width) {
+  @media screen and(min-width: $width) {
+    @content;
+  }
+}
+
+@mixin transition($duration, $properties...) {
+  transition-property: $properties;
+  transition-duration: $duration;
+}
+
+@mixin round ($height: 20px){
+  height: $height;
+  width: $height;
+  border-radius: 50%;
+}
+
+@mixin rounded($borderRadius: 15px) {
+  border-radius: $borderRadius;
+}
