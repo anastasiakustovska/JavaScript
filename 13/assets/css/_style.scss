@@ -1,0 +1,17 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+.info {
+  &__pic {
+    width: 300px;
+  }
+}
+
+#map {
+  height: 600px;
+  width: 80vw;
+}
