@@ -9,6 +9,7 @@ $(document).ready(function () {
             autoplay: false,
             autoplaySpeed: 800,
             speed: 1000,
+            alwaysCenter: true,
             slidesToShow: 5,
             slidesToScroll: 1,
             pauseOnHover: true,
@@ -16,6 +17,7 @@ $(document).ready(function () {
                 {
                     breakpoint: 1000,
                     settings: {
+                        alwaysCenter: true,
                         slidesToShow: 4,
                         slidesToScroll: 1,
                         infinite: true,
@@ -25,6 +27,7 @@ $(document).ready(function () {
                 {
                     breakpoint: 900,
                     settings: {
+                        alwaysCenter: true,
                         slidesToShow: 3,
                         slidesToScroll: 1,
                         infinite: true,
@@ -36,6 +39,7 @@ $(document).ready(function () {
                     breakpoint: 550,
                     settings: {
                         slidesToShow: 2,
+                        alwaysCenter: true,
                         slidesToScroll: 1,
                     }
                 },
@@ -44,6 +48,8 @@ $(document).ready(function () {
                     settings: {
                         slidesToShow: 1,
                         slidesToScroll: 1,
+                        alwaysCenter: true,
+                        variableWidth: true,
                         dots: true,
                         dotsClass: 'slick-dots top-dots',
                     }
@@ -57,51 +63,48 @@ $(document).ready(function () {
 
     (function () {
         $(".partners__slider").slick({
-            infinite: true,
-            variableWidth: true,
-            arrows: false,
-            dotsClass: 'slick-dots top-dots',
             accessibility: true,
+            arrows: false,
+            infinite: true,
             autoplay: false,
+            alwaysCenter: true,
             autoplaySpeed: 800,
             speed: 1000,
-            slidesToShow: 5,
+            slidesToShow: 9,
             slidesToScroll: 1,
             pauseOnHover: true,
             responsive: [
                 {
-                    breakpoint: 1000,
+                    breakpoint: 1200,
                     settings: {
-                        slidesToShow: 4,
+                        slidesToShow: 6,
                         slidesToScroll: 1,
-                        infinite: true,
-                        arrows: true,
-                    }
-                },
-                {
-                    breakpoint: 900,
-                    settings: {
-                        slidesToShow: 3,
-                        slidesToScroll: 1,
-                        infinite: true,
-                        arrows: true,
                     }
                 },
 
                 {
-                    breakpoint: 550,
+                    breakpoint: 800,
                     settings: {
-                        slidesToShow: 2,
+                        slidesToShow: 5,
                         slidesToScroll: 1,
                     }
                 },
                 {
-                    breakpoint: 368,
+                    breakpoint: 650,
                     settings: {
-                        slidesToShow: 1,
-                        slidesToScroll: 1,
+                        slidesToShow: 4,
+                        slidesToScroll: 4,
+                    }
+                },
+                {
+                    breakpoint: 550,
+                    settings: {
                         dots: true,
-                        dotsClass: 'slick-dots top-dots',
+                        autoplay: false,
+                        arrows: false,
+                        dotsClass: 'slick-dots top-dots dots-hero dots-partners',
+                        slidesToShow: 2,
+                        slidesToScroll: 2,
                     }
                 },
             ]

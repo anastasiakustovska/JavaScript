@@ -9,11 +9,21 @@
   justify-content: space-between;
   background: #F8F1EA;
 
+  @include maxWidth($breakpointTablet) {
+    padding: 10px 20px;
+  }
+
   &-container{
     max-width: 1280px;
     padding: 0 100px;
     margin: 0 auto;
     width: 100%;
+
+    @include maxWidth($breakpointSmallDesktop) {
+      max-width: calc(100% - 36px);
+      padding: 0;
+      width: 100%;
+    }
   }
 
   &-menu {
@@ -23,6 +33,10 @@
     &--list {
       display: flex;
       list-style: none;
+
+      @include maxWidth($breakpointMobile) {
+        display: none;
+      }
 
       &__item {
         padding: 28px 15px;
@@ -75,9 +89,47 @@
 
 .slider {
   &--main {
-
     &__slide {
       position: relative;
+
+      @include maxWidth($breakpointTablet) {
+        height: 320px;
+        img {
+          width: auto;
+          object-fit: cover;
+          height: 320px;
+        }
+      }
+
+      &-cover {
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 5;
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0.84) 0%, rgba(217, 217, 217, 0) 100%);
+      }
+
+      &-button{
+        font-family: "Montserrat", sans-serif;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 22px;
+        text-align: center;
+        text-transform: uppercase;
+        color: #FFFFFF;
+        padding: 15px 57px;
+        text-decoration: none;
+        border: 2px solid #F8F1EA;
+
+        @include maxWidth($breakpointTablet) {
+          margin-top: 20px;
+          font-size: 16px;
+          padding: 10px 20px !important;
+        }
+      }
+
       &-content {
         position: absolute;
         right: 100px;
@@ -86,12 +138,21 @@
         font-style: normal;
         font-weight: 700;
         font-size: 50px;
+        z-index: 10;
         line-height: 61px;
         text-align: center;
         text-transform: uppercase;
         color: #F8F1EA;
         width: 400px;
         margin-bottom: 50px;
+
+        @include maxWidth($breakpointTablet) {
+          right: 30px;
+          line-height: initial;
+          max-width: 210px;
+          top: 50px;
+          font-size: 26px;
+        }
       }
 
       &-link{}
@@ -114,7 +175,7 @@
   }
 
   &-dots {
-    bottom: 0;
+    bottom: 200px;
     z-index: 99;
 
     li {
@@ -144,12 +205,16 @@
   }
 }
 
-.slick-dots {
-
-}
-
 .dots-hero {
-  bottom: 200px !important;
+  bottom: 50px !important;
+
+  &.dots-partners {
+    bottom: -20px !important;
+
+    button:before {
+      color: #CAC2BA !important;
+    }
+  }
   button {
     &:before {
       font-size: 20px !important;
@@ -188,6 +253,10 @@
     width: 40px;
     height: 74px;
 
+    @include maxWidth($breakpointMobile) {
+      display: none;
+    }
+
     &:hover {
       path {
         fill: #F16A50;
@@ -196,9 +265,17 @@
 
     &.arrivals__prev {
       left: 100px;
+
+      @include maxWidth($breakpointSmallDesktop) {
+        left: 50px;
+      }
     }
     &.arrivals__next {
       right: 100px;
+
+      @include maxWidth($breakpointSmallDesktop) {
+        right: 50px;
+      }
       transform: rotate(180deg);
     }
   }
@@ -282,6 +359,9 @@
 
   &.next {
     right: 100px;
+      @include maxWidth($breakpointSmallDesktop) {
+        right: 50px;
+      }
     transform: rotate(180deg);
   }
 }
@@ -334,28 +414,210 @@
     color: #000000;
     margin-bottom: 58px;
   }
+  &__arrow {
+    @include maxWidth($breakpointMobile) {
+      display: none;
+    }
+  }
+
+  &__next{
+    @include maxWidth($breakpointSmallDesktop) {
+      right: -50px;
+    }
+  }
 
   &__prev{
     left: 100px;
+
+    @include maxWidth($breakpointSmallDesktop) {
+      left: 50px;
+    }
   }
 }
 
 .footer{
+  background: #35312D;
+  padding-top: 70px;
 
- &-container{
-   width: 1400px;
-   height: 350px;
-   background: #35312D;
+  @include maxWidth($breakpointSmallDesktop) {
+    padding: 70px 25px 0;
+  }
+
+  @include maxWidth($breakpointTablet) {
+    padding: 70px 0 0;
+  }
+
+  &-container{
+    display: flex;
+    width: 100%;
+    padding: 0 150px;
+
+    @include maxWidth($breakpointSmallDesktop) {
+      padding: 0 20px;
+      justify-content: space-around;
+    }
+
+    @include maxWidth($breakpointTablet) {
+      &--item {
+        margin-top: 100px;
+      }
+    }
+
+    justify-content: space-between;
+
+
+   @include maxWidth($breakpointSmallDesktop) {
+     display: flex;
+     width: 100%;
+
+     &--logo {
+       display: flex;
+       justify-content: center;
+     }
+   }
+
+    &--logo {
+      @include maxWidth($breakpointTablet) {
+        position: absolute;
+      }
+    }
+
+
+    .menu{
+      text-align: left;
+
+      &__list{
+        > * {
+          margin-top: 5px;
+          margin-bottom: 5px;
+        }
+
+        &-el{
+          &__link{
+            font-family: "Montserrat", sans-serif;
+            font-style: normal;
+            font-weight: 500;
+            font-size: 20px;
+            line-height: 24px;
+            color: #F8F1EA;
+            text-decoration: none;
+
+            @include maxWidth($breakpointTablet) {
+              font-size: 16px;
+            }
+
+            &:hover {
+              color: #F16A50;
+            }
+          }
+        }
+      }
+    }
+   &__copyright{
+     @include maxWidth($breakpointSmallDesktop) {
+       margin-top: 65px;
+       font-size: 12px;
+
+       > img {
+         width: 100%;
+       }
+     }
+
+     padding-bottom: 20px;
+     font-family: "Montserrat";
+     font-style: normal;
+     font-weight: 500;
+     font-size: 14px;
+     line-height: 17px;
+     color: #F8F1EA;
+     display: flex;
+     justify-content: center;
+     text-align: center;
+   }
+
+   &--main{
+     margin: auto;
+     display: flex;
+     align-items: flex-start;
+     padding: 70px 0;
+     justify-content: space-between;
+   }
 
    &--logo{
-     width: 150px;
      height: 30px;
-     top: 0;
-     left: 0;
+     margin-bottom: 35px;
+   }
 
-     &--menu{
-       margin-top: 65px;
-       text-align: left;
+   &--contacts{
+     display: flex;
+     align-items: flex-start;
+     justify-content: center;
+     flex-direction: column;
+
+     @include maxWidth($breakpointTablet) {
+       justify-content: flex-end;
+       align-items: flex-end;
+     }
+
+     &__title{
+       font-family: "Montserrat", sans-serif;
+       font-style: normal;
+       font-weight: 500;
+       font-size: 26px;
+       line-height: 32px;
+       color: #F8F1EA;
+       text-decoration: none;
+
+       @include maxWidth($breakpointTablet) {
+         font-size: 20px;
+       }
+   }
+     &__media{
+       width: 100%;
+       height: 37px;
+       margin: 48px 0 32px;
+       display: flex;
+       align-items: center;
+       gap: 20px;
+       justify-content: flex-start;
+
+       a {
+         svg {
+           width: 30px;
+           height: 30px;
+         }
+
+         @include maxWidth($breakpointTablet) {
+           svg {
+             width: 20px;
+             height: 20px;
+           }
+         }
+
+         &:hover {
+           path {
+             stroke: #F16A50;
+           }
+
+           path.full {
+             fill: #F16A50;
+           }
+         }
+       }
+
+     }
+     &__telephone{
+       font-family: "Montserrat";
+       font-style: normal;
+       font-weight: 500;
+       font-size: 26px;
+       line-height: 32px;
+       color: #F8F1EA;
+       text-decoration: none;
+
+       @include maxWidth($breakpointTablet) {
+         font-size: 20px;
+       }
      }
    }
  }
