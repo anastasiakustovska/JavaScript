@@ -1,4 +1,4 @@
-// const imagemin = require('gulp-imagemin');
+const imagemin = require('gulp-imagemin');
 const gulp = require('gulp');
 const sass = require('gulp-sass')(require('sass'));
 
@@ -8,11 +8,11 @@ function buildStyles() {
         .pipe(gulp.dest('./files/css'));
 }
 
-// function img() {
-//     return gulp.src('src/images/*')
-//         .pipe(imagemin())
-//         .pipe(gulp.dest('dist/images'));
-// }
+function img() {
+    return gulp.src('src/images/*')
+        .pipe(imagemin())
+        .pipe(gulp.dest('dist/images'));
+}
 
 
 exports.buildStyles = buildStyles;
@@ -20,6 +20,6 @@ exports.watch = function () {
     gulp.watch('./**/*.scss', buildStyles);
 
 };
-// exports.img = img;
+exports.img = img;
 
 
