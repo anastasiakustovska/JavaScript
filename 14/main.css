@@ -1,0 +1,9 @@
+body {
+  background: red;
+}
+body a {
+  color: white;
+}
+body .test {
+  background: orange;
+}
