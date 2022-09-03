@@ -1,33 +1,157 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <title>Vue instance</title>
-  <link
-          rel="stylesheet"
-          href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-          crossorigin="anonymous"
-  />
+    <meta charset="UTF-8">
+    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+          name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <title>Document</title>
+    <link href="assets/css/style.css" rel="stylesheet">
 </head>
-
 <body>
-<div id="app">
-  <div class="container pt-5">
-    <h1 class="text-center">Introduction to Vue.js</h1>
-    <p>{{someNumber}}</p>
-  </div>
+<div class="wrapper" id="app">
+    <div class="card-form">
+        <div class="card-list">
+            <div class="card-item" :class="{ '-active' : isFlipped }">
+                <div class="card-item__side -front">
+                    <div class="card-item__focus"></div>
+                    <div class="card-item__cover">
+                        <img class="card-item__bg"
+                             :src="'https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/' + cardBackground + '.jpeg'">
+                    </div>
+                    <div class="card-item__wrapper">
+                        <div class="card-item__top">
+                            <img class="card-item__chip"
+                                 src="https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/chip.png">
+                            <div class="card-item__type">
+                                <transition name="slide-fade-up">
+                                    <img :alt="cardType" class="card-item__typeImg" :key="cardType"
+                                         :src="'https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/' + cardType + '.png'"
+                                         v-if="cardType">
+                                </transition>
+                            </div>
+                        </div>
+                        <label class="card-item__number" for="cardNumber" ref="cardNumber">
+                            <template v-if="cardType === 'amex'">
+                                <span>
+                                    <transition-group name="slide-fade-up">
+                                        <div :key="'1'+ '2'" class="card-item__numberItem">*</div><div
+                                            class="card-item__numberItem"></div>
+                                        <div :key="'1'+ '3'">332</div>
+                                    </transition-group>
+                                </span>
+                            </template>
+                            <template v-else>
+                              <span>
+                                <transition-group name="slide-fade-up">
+                                  <div :key="'ni' + $index" v-for="(item, $index) in card.number"
+                                       class="card-item__numberItem">{{ item }}</div>
+                                </transition-group>
+                              </span>
+                            </template>
+                        </label>
+                        <div class="card-item__content">
+                            <label class="card-item__info" for="cardName" ref="cardName">
+                                <div class="card-item__holder">Card Holder</div>
+                                <transition-group name="slide-fade-up">
+                                    <div class="card-item__name" key="1">
+                                        <transition-group name="slide-fade-right">
+                                            <span key="holder" class="card-item__nameItem"
+                                                  v-if="card.holder">{{ card.holder }}</span>
+                                            <span key="i-holder" class="card-item__nameItem" v-else>Holder</span>
+                                        </transition-group>
+                                    </div>
+                                </transition-group>
+                            </label>
+                            <div class="card-item__date" ref="cardDate">
+                                <label class="card-item__dateTitle" for="cardMonth">Expires</label>
+                                <label class="card-item__dateItem" for="cardMonth">
+                                    <transition name="slide-fade-up">
+                                        <span :key="card.month" v-if="card.month">{{ card.month }}</span>
+                                        <span :key="card.month + '1'" v-else>MM</span>
+                                    </transition>
+                                </label>
+                                /
+                                <label class="card-item__dateItem" for="cardYear">
+                                    <transition name="slide-fade-up">
+                                        <span :key="card.year" v-if="card.year">{{ formattedYear }}</span>
+                                        <span :key="card.year + '1'" v-else>YY</span>
+                                    </transition>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-item__side -back">
+                    <div class="card-item__cover">
+                        <img class="card-item__bg"
+                             :src="'https://raw.githubusercontent.com/muhammederdem/credit-card-form/master/src/assets/images/' + cardBackground + '.jpeg'">
+                    </div>
+                    <div class="card-item__band"></div>
+                    <div class="card-item__cvv">
+                        <div class="card-item__cvvTitle">CVV</div>
+                        <div class="card-item__cvvBand">
+                            <span v-for="(n, $index) in card.cvv" :key="$index">
+                                *
+                            </span>
+                        </div>
+                        <div class="card-item__type">
+                            <img class="card-item__typeImg">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-form__inner">
+            <div class="card-input">
+                <label class="card-input__label" for="cardNumber">Card Number</label>
+                <input autocomplete="off" v-mask="cardMask" class="card-input__input" id="cardNumber" type="text"
+                       v-model="card.number">
+            </div>
+            <div class="card-input">
+                <label class="card-input__label" for="cardName">Card Holder</label>
+                <input autocomplete="off" class="card-input__input" id="cardName" type="text" v-model="card.holder">
+            </div>
+            <div class="card-form__row">
+                <div class="card-form__col">
+                    <div class="card-form__group">
+                        <label class="card-input__label" for="cardMonth">Expiration Date</label>
+                        <select class="card-input__input -select" id="cardMonth" v-model="card.month">
+                            <option disabled selected value="">Month</option>
+                            <option :key="month" v-for="month in availableMonths">{{ month }}</option>
+                        </select>
+                        <select class="card-input__input -select" id="cardYear" v-model="card.year">
+                            <option disabled selected value="">Year</option>
+                            <option :key="year" v-for="year in availableYears">{{ year }}</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="card-form__col -cvv">
+                    <div class="card-input">
+                        <label class="card-input__label" for="cardCvv">CVV</label>
+                        <input
+                                autocomplete="off"
+                                class="card-input__input"
+                                id="cardCvv"
+                                type="text"
+                                @input="onCvvChange"
+                                :value="card.cvv"
+                                maxlength="3"
+                                @focus="flipCard"
+                                @blur="flipCard(false)"
+                        >
+                    </div>
+                </div>
+            </div>
+
+            <button class="card-form__button">
+                Submit
+            </button>
+        </div>
+    </div>
 </div>
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-<script type="text/javascript">
-  new Vue({
-    el: '#app',
-    data: {
-      someNumber: 10,
-    },
-  });
-</script>
 </body>
+<script src="https://unpkg.com/vue@2"></script>
+<script src="https://cdn.jsdelivr.net/npm/v-mask/dist/v-mask.min.js"></script>
+<script src="./assets/js/app.js"></script>
 </html>
